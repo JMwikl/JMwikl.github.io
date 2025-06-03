@@ -158,7 +158,7 @@ h1 {
     font-size: 14px;
 }
 
-.teacher-profile {
+..teacher-profile {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -168,14 +168,21 @@ h1 {
 .teacher-photo {
     flex: 0 0 300px;
     max-width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .teacher-photo img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.teacher-photo:hover img {
+    transform: scale(1.03);
 }
 
 .teacher-info {
@@ -183,15 +190,33 @@ h1 {
     min-width: 300px;
 }
 
-.teacher-info h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #444;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 10px;
+.teacher-intro {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed var(--border-color);
 }
 
-.teacher-info p {
+.teacher-intro h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.teacher-intro p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.teacher-detail {
+    background-color: rgba(255,255,255,0.9);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--hover-blue);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.teacher-detail p {
     margin-bottom: 12px;
     font-size: 15px;
     line-height: 1.6;
@@ -199,26 +224,17 @@ h1 {
     align-items: center;
 }
 
-.teacher-info i {
+.teacher-detail i {
     width: 20px;
     color: #666;
     margin-right: 10px;
     text-align: center;
 }
 
-.teacher-info strong {
+.teacher-detail strong {
     min-width: 80px;
     display: inline-block;
     margin-right: 10px;
-}
-
-.teacher-detail {
-    background-color: rgba(255,255,255,0.9);
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 10px;
-    border-left: 4px solid var(--hover-blue);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 @media (min-width: 1024px) {
@@ -256,12 +272,6 @@ h1 {
     .teacher-info {
         min-width: 100%;
     }
-    .teacher-info p {
-        flex-wrap: wrap;
-    }
-    .teacher-info strong {
-        min-width: 70px;
-    }
 }
 
 #sidebar.desktop-hidden {
@@ -277,6 +287,7 @@ h1 {
     font-weight: bold;
 }
 
+/* 动画效果 */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -286,6 +297,7 @@ h1 {
     animation: fadeIn 0.5s ease-out;
 }
 
+/* 打印样式 */
 @media print {
     #header, #sidebar {
         display: none;
