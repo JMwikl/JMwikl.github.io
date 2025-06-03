@@ -165,12 +165,12 @@ h1 {
     padding: 20px;
 }
 
+/* 添加照片显示相关样式 */
 .teacher-photo {
     flex: 0 0 300px;
-    max-width: 100%;
     height: 300px;
-    overflow: hidden;
     border-radius: 8px;
+    overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
@@ -184,6 +184,8 @@ h1 {
 .teacher-photo:hover img {
     transform: scale(1.03);
 }
+
+
 
 .teacher-info {
     flex: 1;
