@@ -192,26 +192,33 @@ h1 {
 }
 
 .teacher-info p {
-    margin-bottom: 15px;
-    font-size: 16px;
+    margin-bottom: 12px;
+    font-size: 15px;
     line-height: 1.6;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .teacher-info i {
-    width: 24px;
+    width: 20px;
     color: #666;
     margin-right: 10px;
-    margin-top: 3px;
+    text-align: center;
+}
+
+.teacher-info strong {
+    min-width: 80px;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .teacher-detail {
-    background-color: rgba(255,255,255,0.8);
-    padding: 15px;
+    background-color: rgba(255,255,255,0.9);
+    padding: 20px;
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 10px;
     border-left: 4px solid var(--hover-blue);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 @media (min-width: 1024px) {
@@ -249,6 +256,12 @@ h1 {
     .teacher-info {
         min-width: 100%;
     }
+    .teacher-info p {
+        flex-wrap: wrap;
+    }
+    .teacher-info strong {
+        min-width: 70px;
+    }
 }
 
 #sidebar.desktop-hidden {
@@ -264,7 +277,6 @@ h1 {
     font-weight: bold;
 }
 
-/* 动画效果 */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -274,7 +286,6 @@ h1 {
     animation: fadeIn 0.5s ease-out;
 }
 
-/* 打印样式 */
 @media print {
     #header, #sidebar {
         display: none;
