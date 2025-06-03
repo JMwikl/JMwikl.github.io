@@ -1,0 +1,290 @@
+:root {
+    --primary-color: #ffffff;
+    --text-color: #333;
+    --light-bg: #ffffff;
+    --card-bg: #f5f5f5;
+    --border-color: #e0e0e0;
+    --hover-blue: #757575;
+    --hover-bg: rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    transition: background-color 0.3s ease;
+    line-height: 1.6;
+}
+
+#header {
+    background-color: var(--primary-color);
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    color: var(--text-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease;
+}
+
+#menu-btn {
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    margin-right: 20px;
+    transition: transform 0.2s ease;
+}
+
+#menu-btn:active {
+    transform: scale(0.95);
+}
+
+#title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #ffffff;
+    transition: left 0.3s;
+    z-index: 99;
+    padding-top: 60px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar ul {
+    list-style: none;
+}
+
+#sidebar ul li {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+#sidebar ul li:hover {
+    background-color: var(--hover-bg);
+}
+
+#sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+#sidebar ul li a:hover {
+    color: var(--hover-blue) !important;
+}
+
+#sidebar ul li i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+#content {
+    padding: 70px 20px 20px;
+    transition: margin-left 0.3s;
+    min-height: 100vh;
+}
+
+#content.shifted {
+    margin-left: 250px;
+}
+
+.page {
+    display: none;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+}
+
+.page.active {
+    display: block;
+}
+
+h1 {
+    padding: 15px 20px;
+    font-size: 18px;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.command-section {
+    padding: 15px;
+}
+
+.command-item {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+.command-item:hover {
+    background-color: rgba(0,0,0,0.02);
+}
+
+.command-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.command-desc {
+    color: #666;
+    font-size: 14px;
+}
+
+.teacher-profile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
+
+.teacher-photo {
+    flex: 0 0 300px;
+    max-width: 100%;
+}
+
+.teacher-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    object-fit: cover;
+}
+
+.teacher-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.teacher-info h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #444;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.teacher-info p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+}
+
+.teacher-info i {
+    width: 24px;
+    color: #666;
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.teacher-detail {
+    background-color: rgba(255,255,255,0.8);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid var(--hover-blue);
+}
+
+@media (min-width: 1024px) {
+    #sidebar {
+        left: 0;
+    }
+    #content {
+        margin-left: 250px;
+    }
+    #menu-btn {
+        display: block !important;
+    }
+}
+
+@media (max-width: 1023px) {
+    #sidebar {
+        left: -250px;
+    }
+    #content {
+        margin-left: 0;
+    }
+    #menu-btn {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .teacher-profile {
+        flex-direction: column;
+    }
+    .teacher-photo {
+        flex: 0 0 auto;
+        margin: 0 auto 20px;
+    }
+    .teacher-info {
+        min-width: 100%;
+    }
+}
+
+#sidebar.desktop-hidden {
+    left: -250px;
+}
+
+#content.desktop-shifted {
+    margin-left: 0;
+}
+
+.active {
+    color: var(--hover-blue);
+    font-weight: bold;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* 打印样式 */
+@media print {
+    #header, #sidebar {
+        display: none;
+    }
+    #content {
+        padding: 0;
+        margin: 0;
+    }
+    .page {
+        box-shadow: none;
+        page-break-after: always;
+    }
+}
