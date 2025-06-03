@@ -51,13 +51,13 @@ body {
 }
 
 #title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 #sidebar {
     position: fixed;
-    top: 0;
+    top: 10px;
     left: -250px;
     width: 250px;
     height: 100%;
